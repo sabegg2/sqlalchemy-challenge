@@ -1,1 +1,10 @@
+# sqlalchemy-challenge
 Module 10 Challenge
+
+In the SurfsUp folder, I have included:
+
+(1) climate.ipynb file. This contains the Part 1: Analyze and Explore the Climate Data analysis. In this section, I used Python and SQLAlchemy to do a basic climate analysis and data exploration of your climate database. Specifically, I used SQLAlchemy ORM queries, Pandas, and Matplotlib. 
+
+(2) Images/Precipitation_Plot and Images/Station_Plot_USC00519281. These are two output images from the Part 1 analysis. Precipitation_Plo shows a line plot of precipitation over time for the last 12 months of data. Station_Plot_USC00519281 shows a histogram of the temperatures at Station USC00519281 for the last 12 months of data.
+
+(3) app.py. 
