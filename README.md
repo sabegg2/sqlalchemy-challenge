@@ -17,4 +17,4 @@ Station_Plot_USC00519281 shows a histogram of the temperatures at Station USC005
 
 (3) app.py. This contains the code for Part 2: Design Your Climate App. I this section, I designed a Flask API based on the queries developed in Part 1. When run, the app.py file creates the app at http://127.0.0.1:5000. Here's an image of the main page of the working app.
 [link to app.py file](SurfsUp/app.py)
-![alt text](https://github.com/sabegg2/sqlalchemy-challenge/blob/main/SurfsUp/Images/app.png?raw=true)
+![app_image](SurfsUp/Images/app.png?raw=true)
