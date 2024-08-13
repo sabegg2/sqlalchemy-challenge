@@ -4,7 +4,7 @@ Module 10 Challenge
 In the SurfsUp folder, I have included:
 
 (1) climate.ipynb file. This contains the Part 1: Analyze and Explore the Climate Data analysis. In this section, I used Python and SQLAlchemy to do a basic climate analysis and data exploration of your climate database. Specifically, I used SQLAlchemy ORM queries, Pandas, and Matplotlib. 
-![link to climate.ipynb file](https://github.com/sabegg2/sqlalchemy-challenge/blob/main/SurfsUp/climate.ipynb)
+[link to climate.ipynb file](climate.ipynb)
 
 (2) Images/Precipitation_Plot and Images/Station_Plot_USC00519281. These are two output images from the Part 1 analysis. 
 
