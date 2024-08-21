@@ -10,7 +10,7 @@ In the SurfsUp folder, I have included:
 
 (2) Images/Precipitation_Plot and Images/Station_Plot_USC00519281. These are two output images from the Part 1 analysis. 
 
-Precipitation_Plot shows a line plot of precipitation over time for the last 12 months of data. 
+Precipitation_Plot shows a line plot of precipitation over time for the last 12 months of data.  Below I include the same data, but in different format (the second matches that in the Module Challenge description, but the first was my own formatting).
 ![Precipitation_Plot.png](SurfsUp/Images/Precipitation_Plot.png?raw=true)
 ![Precipitation_Plot_2.png](SurfsUp/Images/Precipitation_Plot_2.png?raw=true)
 
