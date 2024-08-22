@@ -17,13 +17,13 @@ from flask import Flask, jsonify
 engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 
 # reflect an existing database into a new model
-base = automap_base()
+Base = automap_base()
 # reflect the tables
-base.prepare(engine)
+Base.prepare(engine)
 
 # Save references to each table
-measurement_table = base.classes.measurement
-station_table = base.classes.station
+measurement_table = Base.classes.measurement
+station_table = Base.classes.station
 
 # Create our session (link) from Python to the DB
 session = Session(engine)
@@ -103,14 +103,16 @@ def homepage():
 def precipitation():
     session = Session(engine)
 
-    # Perform a query to retrieve the data and precipitation scores.
+    # Perform a query to retrieve the data and precipitation scores
     data_precip_last_year = session.query(measurement_table.date, measurement_table.prcp).filter(measurement_table.date >= date_one_yr_before).all()
+    
+    # Close session
     session.close()
 
-    # Dictionary using date as the key and prcp as the value.
+    # Dictionary using date as the key and prcp as the value
     data_precip_last_year_dict = {date: prcp for date, prcp in data_precip_last_year}
 
-    # Return the JSON representation of your dictionary.
+    # Return the JSON representation of your dictionary
     return jsonify(data_precip_last_year_dict)
 
 
@@ -121,12 +123,14 @@ def stations():
     
     # Query to get stations
     station_list = session.query(station_table.station).all()
+    
+    # Close session
     session.close()
 
     # Unravel results into a 1D array and convert to a list
     station_list = list(np.ravel(station_list))
 
-    # Return a JSON list of stations from the dataset.
+    # Return a JSON list of stations from the dataset
     return jsonify(station_list)
 
 
@@ -136,16 +140,18 @@ def stations():
 def temp_most_active_station():
     session = Session(engine)
 
-    # Query the last 12 months of temperature observation data for this station.
+    # Query the last 12 months of temperature observation data for this station
     data_temp_last_year = session.query(measurement_table.date, measurement_table.tobs).\
             filter(measurement_table.date.between(date_one_yr_before,date_most_recent),\
                    measurement_table.station == most_active_station).all()
+    
+    # Close session
     session.close()
     
-    # Dictionary using date as the key and tobs as the value.
+    # Dictionary using date as the key and tobs as the value
     data_temp_last_year_dict = {date: tobs for date, tobs in data_temp_last_year}
 
-    # Return the JSON representation of your dictionary.
+    # Return the JSON representation of your dictionary
     return jsonify(data_temp_last_year_dict)
 
 
@@ -157,10 +163,10 @@ def temp_most_active_station():
 def temp_stats_date_range(start, end):
     session = Session(engine)
 
-    # Select statement
+    # Select statement, query(*[]) will unpack list
     sel_statement = [func.min(measurement_table.tobs), func.avg(measurement_table.tobs), func.max(measurement_table.tobs)]
 
-    # If end date given, calculate TMIN, TAVG, TMAX for the dates from the start date to the end date, inclusive.
+    # If end date given, calculate TMIN, TAVG, TMAX for the dates from the start date to the end date, inclusive
     if end != None:
         temp_stats = session.query(*sel_statement).\
             filter(measurement_table.date >= start).filter(measurement_table.date <= end).all()
@@ -168,6 +174,8 @@ def temp_stats_date_range(start, end):
     else:
         temp_stats = session.query(*sel_statement).\
             filter(measurement_table.date >= start).all()
+    
+    # Close session
     session.close()
 
     # Convert the query results to a list, and return error message if no temperature data found.
