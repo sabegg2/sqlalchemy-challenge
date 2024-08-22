@@ -17,11 +17,12 @@ In the SurfsUp folder, I have included:
 In the Part 1 analysis, we plotted precipitation over time for the last 12 months of data. Two versions of the plot are shown below, in different format (the second matches that in the Module Challenge description, but the first was my own formatting).
 
 <img src="SurfsUp/Images/Precipitation_Plot.png" width=800>
-<img src="SurfsUp/Images/Precipitation_Plot_2.png" width=800>
+<img src="SurfsUp/Images/Precipitation_Plot_2.png" width=500>
 
 In the Part 1 analysis, we also looked at the temperature data at the most active station, which was Station USC00519281, with 2772 measurements over the timeframe of the data.  According to the analysis, the lowest, highest, and average temperature, respectively, at Station USC00519281 are: 54.0, 85.0, 71.7 degrees Fahrenheit. The histogram below shows the temperatures at Station USC00519281 (the station with the most data) for the last 12 months of data.
 
-![Station_Plot_USC00519281.png](SurfsUp/Images/Station_Plot_USC00519281.png?raw=true)
+<img src="SurfsUp/Images/Station_Plot_USC00519281.png" width=500>
+
 
 ## Part 2: Design Your Climate App
 
