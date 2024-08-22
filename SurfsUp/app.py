@@ -89,11 +89,11 @@ def homepage():
 
         "/api/v1.0/start_date<br/>"
         "<a href=http://127.0.0.1:5000/api/v1.0/2016-08-23> \
-            Change the start date (YYYY-MM-DD) in the url to show the minimum, average, and maximum temperature for all dates greater than and equal to the start date.</a><br/><br/>"
+            Change the start date (YYYY-MM-DD) in the url to show the minimum, average, and maximum temperature (Fahrenheit) for all dates greater than and equal to the start date.</a><br/><br/>"
 
         "/api/v1.0/start_date/end_date<br/>"
         "<a href=http://127.0.0.1:5000/api/v1.0/2016-08-23/2017-08-23> \
-            Change the start date and end date (YYYY-MM-DD) in the url to show the minimum, average, and maximum temperature for dates from the start date to the end date, inclusive.</a><br/>" 
+            Change the start date and end date (YYYY-MM-DD) in the url to show the minimum, average, and maximum temperature (Fahrenheit) for dates from the start date to the end date, inclusive.</a><br/>" 
     )
 
 # Convert the query results from your precipitation analysis (i.e. retrieve only the last 12 months of data) 
