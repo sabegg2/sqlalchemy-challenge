@@ -19,28 +19,28 @@ engine = create_engine("sqlite:///Resources/hawaii.sqlite")
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
-Base.prepare(engine)
+Base.prepare(autoload_with=engine)
 
 # Save references to each table
-measurement_table = Base.classes.measurement
-station_table = Base.classes.station
+Measurement = Base.classes.measurement
+Station = Base.classes.station
 
 # Create our session (link) from Python to the DB
 session = Session(engine)
 
 # List the stations and their counts in descending order
-stations_by_measurement_count = session.query(station_table.station, func.count(measurement_table.station)).\
-        filter(station_table.station == measurement_table.station).\
-                group_by(station_table.station).\
-                        order_by(func.count(measurement_table.station).desc()).\
+stations_by_measurement_count = session.query(Station.station, func.count(Measurement.station)).\
+        filter(Station.station == Measurement.station).\
+                group_by(Station.station).\
+                        order_by(func.count(Measurement.station).desc()).\
                                 all()
 # Most active station is the first one in the stations_by_measurement_count list
 most_active_station = stations_by_measurement_count[0][0]
 
 # Find the most recent date in the data set
 # Calculate the date one year from the last date in data set
-date_oldest = session.query(func.min(measurement_table.date)).scalar()
-date_most_recent = session.query(func.max(measurement_table.date)).scalar()
+date_oldest = session.query(func.min(Measurement.date)).scalar()
+date_most_recent = session.query(func.max(Measurement.date)).scalar()
 date_one_yr_before_dt = dt.datetime.strptime(date_most_recent, '%Y-%m-%d') - dt.timedelta(days=365)
 date_one_yr_before = date_one_yr_before_dt.strftime('%Y-%m-%d')
 
@@ -104,7 +104,7 @@ def precipitation():
     session = Session(engine)
 
     # Perform a query to retrieve the data and precipitation scores
-    data_precip_last_year = session.query(measurement_table.date, measurement_table.prcp).filter(measurement_table.date >= date_one_yr_before).all()
+    data_precip_last_year = session.query(Measurement.date, Measurement.prcp).filter(Measurement.date >= date_one_yr_before).all()
     
     # Close session
     session.close()
@@ -122,7 +122,7 @@ def stations():
     session = Session(engine)
     
     # Query to get stations
-    station_list = session.query(station_table.station).all()
+    station_list = session.query(Station.station).all()
     
     # Close session
     session.close()
@@ -141,9 +141,9 @@ def temp_most_active_station():
     session = Session(engine)
 
     # Query the last 12 months of temperature observation data for this station
-    data_temp_last_year = session.query(measurement_table.date, measurement_table.tobs).\
-            filter(measurement_table.date.between(date_one_yr_before,date_most_recent),\
-                   measurement_table.station == most_active_station).all()
+    data_temp_last_year = session.query(Measurement.date, Measurement.tobs).\
+            filter(Measurement.date.between(date_one_yr_before,date_most_recent),\
+                   Measurement.station == most_active_station).all()
     
     # Close session
     session.close()
@@ -164,16 +164,16 @@ def temp_stats_date_range(start, end):
     session = Session(engine)
 
     # Select statement, query(*[]) will unpack list
-    sel_statement = [func.min(measurement_table.tobs), func.avg(measurement_table.tobs), func.max(measurement_table.tobs)]
+    sel_statement = [func.min(Measurement.tobs), func.avg(Measurement.tobs), func.max(Measurement.tobs)]
 
     # If end date given, calculate TMIN, TAVG, TMAX for the dates from the start date to the end date, inclusive
     if end != None:
         temp_stats = session.query(*sel_statement).\
-            filter(measurement_table.date >= start).filter(measurement_table.date <= end).all()
+            filter(Measurement.date >= start).filter(Measurement.date <= end).all()
     # If no end date given, calculate TMIN, TAVG, TMAX for dates greater than or equal to the start date.
     else:
         temp_stats = session.query(*sel_statement).\
-            filter(measurement_table.date >= start).all()
+            filter(Measurement.date >= start).all()
     
     # Close session
     session.close()
