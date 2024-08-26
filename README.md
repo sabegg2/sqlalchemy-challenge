@@ -29,7 +29,7 @@ In the Part 1 analysis, we also looked at the temperature data at the most activ
 
 ## Part 2: Design Your Climate App
 
-In this section, I designed a Flask API based on the queries developed in Part 1. When run, the app.py file creates the app at http://127.0.0.1:5000. Here's an image of the main page of the working app:
+In this section, I designed a Flask API based on the queries developed in Part 1. When run, the app.py file creates the app at http://127.0.0.1:5000. For the routes including a date in the url, if the date range is out of range of the data, a message will be shown telling the user to enter dates within the range of the data. Here's an image of the main page of the working app:
 
 <img src="SurfsUp/Images/app.png" width=900>
 
