@@ -12,6 +12,9 @@ In the SurfsUp folder, I have included:
 
 (3) [app.py](SurfsUp/app.py). This contains the code for Part 2: Design Your Climate App. In this section, I designed a Flask API based on the queries developed in Part 1. When run, the app.py file creates the app at http://127.0.0.1:5000. 
 
+(3) [app.ipynb](SurfsUp/app.ipynb). This contains the same code as app.py, but in Jupyter notebook form. 
+
+
 ## Part 1: Analyze and Explore the Climate Data
 
 In the Part 1 analysis, we plotted precipitation over time for the last 12 months of data. Two versions of the plot are shown below, in different format (the second matches that in the Module Challenge description, but the first was my own formatting).
