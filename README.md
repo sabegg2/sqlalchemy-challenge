@@ -2,9 +2,13 @@
 - Module 10 Challenge
 - Steph Abegg
 
+## Regrade Submission
+
+My updated files are in the regrade_submission folder.  I have made changes based on the comments from the grader.
+
 ## Files
 
-In the SurfsUp folder (in the regrade_submission), I have included:
+In the SurfsUp folder, I have included:
 
 (1) [climate.ipynb](regrade_submission/SurfsUp/climate.ipynb). This contains the Part 1: Analyze and Explore the Climate Data analysis. In this section, I used Python and SQLAlchemy to do a basic climate analysis and data exploration of your climate database. Specifically, I used SQLAlchemy ORM queries, Pandas, and Matplotlib. 
 
