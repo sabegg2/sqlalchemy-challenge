@@ -6,9 +6,9 @@
 
 My updated files are in the regrade_submission folder.  I have made changes based on the comments from the grader. Here are the major changes I made:
 
-(1) Rewrote the return logic for the /api/v1.0/'<start>'/'<end>' route to be more concise and easier to understand. I agree that my previous code was clunky and had some unnecessary steps.
+(1) Rewrote the return logic for the /api/v1.0/'start'/'end' route to be more concise and easier to understand. I agree that my previous code was clunky and had some unnecessary steps.
 
-(2) Cleaned up inconsistent naming of variables in the climate.ipymb (actually, I do not believe there was any inconsistency, but I removed the commented out variables to avoid confusion, which makes everything seem more consistent).
+(2) Cleaned up inconsistent naming of variables in the climate.ipymb (actually, I do not believe there was any inconsistency, but I removed the commented out variables to avoid confusion, which I think is what was causing some appearance of inconsistency between cells).
 
 (3) Added more detail to README.md explaining the purpose of some routes and the analysis methods.
 
