@@ -179,24 +179,16 @@ def temp_stats_date_range(start, end):
     session.close()
 
     # Convert the query results to a list, and return error message if no temperature data found.
-    temp_stats_list = []
-    no_temperature_data = False
     for min_temp, avg_temp, max_temp in temp_stats:
         if min_temp == None or avg_temp == None or max_temp == None:
-            no_temperature_data = True
-        temp_stats_list.append(min_temp)
-        temp_stats_list.append(avg_temp)
-        temp_stats_list.append(max_temp)
-    # Return a JSON list of the temperatures
-    if no_temperature_data == True:
-        return (
-            "No temperature data found for the given date range.<br/>"
-            f"Data from {date_oldest} to {date_most_recent}.<br/>"
-            "Try another date range."
-        )
-    else:
-        return jsonify(temp_stats_list)
-
+            return (
+                "No temperature data found for the given date range.<br/>"
+                f"Data from {date_oldest} to {date_most_recent}.<br/>"
+                "Try another date range."
+            )
+        else: # Return a JSON list of the temperatures
+            temp_stats_list = [min_temp, avg_temp, max_temp]
+            return jsonify(temp_stats_list)
 
 if __name__ == '__main__':
     app.run()
